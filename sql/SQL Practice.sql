@@ -124,3 +124,66 @@ WHERE Marks > 75
 ORDER BY RIGHT(NAME, 3)
     , ID ASC
 ;
+
+--19 Employee Salaries
+SELECT name
+FROM Employee
+WHERE salary > 2000
+    AND months < 10
+;
+
+--20 Weather Observation Station 14
+SELECT 
+    ROUND(MAX(LAT_N), 4)
+FROM STATION
+WHERE LAT_N < 137.2345
+;
+
+--21 Weather Observation Station 15
+SELECT ROUND(LONG_W,4) 
+FROM STATION 
+WHERE LAT_N = 
+    (SELECT MAX(LAT_N) FROM STATION WHERE LAT_N<137.2345)
+;
+
+--22 Weather Observation Station 16
+SELECT ROUND(MIN(LAT_N),4)
+FROM STATION
+WHERE LAT_N > 38.7780
+;
+
+--23 Weather Observation Station 17
+SELECT ROUND(LONG_W,4)
+FROM STATION
+WHERE LAT_N = (SELECT MIN(LAT_N)
+              FROM STATION
+              WHERE LAT_N > 38.7780
+              ;)
+;
+
+
+--24 Weather Observation Station 18
+SELECT ROUND(MAX(LAT_N)-MIN(LAT_N) + MAX(LONG_W) - MIN(LONG_W),4)
+FROM STATION
+;
+
+--25 Weather Observation Station 19
+SELECT ROUND(SQRT(POWER(MAX(LAT_N)-MIN(LAT_N),2) + POWER(MAX(LONG_W) - MIN(LONG_W),2)),4)
+FROM STATION
+;
+
+--26 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
